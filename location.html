@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Location-Based AR</title>
+    <!-- Include AR.js and A-Frame for AR functionality -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.0.0/aframe/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <!-- Create the AR scene -->
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- Place a 3D box at specific GPS coordinates (latitude and longitude) -->
+      <a-entity gps-entity-place="latitude: 37.7749; longitude: -122.4194" 
+                geometry="primitive: box; height: 1; width: 1; depth: 1;" 
+                material="color: red;">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
