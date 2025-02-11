@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Location-Based AR</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location-Based AR with 3D Model</title>
+
     <!-- Include AR.js and A-Frame for AR functionality -->
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.0.0/aframe/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
@@ -10,10 +12,16 @@
   <body style="margin: 0; overflow: hidden;">
     <!-- Create the AR scene -->
     <a-scene embedded arjs="sourceType: webcam;">
-      <!-- Place a 3D box at specific GPS coordinates (latitude and longitude) -->
-      <a-entity gps-entity-place="latitude: 38.5277024; longitude: -121.5652209" 
-                geometry="primitive: box; height: 1; width: 1; depth: 1;" 
-                material="color: red;">
+      <!-- Camera to track the user's location -->
+      <a-camera gps-camera></a-camera>
+
+      <!-- Place a 3D model at a specific location (latitude: 37.7749, longitude: -122.4194 - San Francisco) -->
+      <a-entity 
+        gps-entity-place="latitude:  38.5277024; longitude: -121.5652209"
+        gltf-model="url(path/to/your/model.glb)" 
+        scale="0.5 0.5 0.5" 
+        rotation="0 180 0"
+      >
       </a-entity>
     </a-scene>
   </body>
